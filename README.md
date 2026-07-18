@@ -4,6 +4,8 @@
 
 [在线体验](https://bionic-design-assistant.vercel.app/) · [GitHub 仓库](https://github.com/sayohno222-blip/bionic-design-assistant)
 
+线上版本由 Vercel 托管，生产分支为 `main`。
+
 ## 项目定位
 
 AI Design Assistant 面向产品设计学生和初学者，帮助用户把自然灵感整理成可继续深化的产品设计方向。用户填写产品类型、灵感来源、风格、目标用户和设计目标后，系统会展示从特征提取到设计说明的完整流程。
