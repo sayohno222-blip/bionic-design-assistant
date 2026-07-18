@@ -20,6 +20,12 @@ export default function Layout() {
         </div>
       </header>
 
+      <div className="border-b border-amber-200 bg-amber-50 text-amber-900" role="status">
+        <p className="max-w-4xl mx-auto px-6 py-2 text-sm">
+          演示版本：当前使用 3 组 Mock 示例数据，不会调用真实 AI。
+        </p>
+      </div>
+
       <main className="max-w-4xl mx-auto px-6 py-8">
         <StateRouter state={state} actions={actions} />
       </main>

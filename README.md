@@ -63,7 +63,7 @@ bionic-design-assistant/
 ```bash
 git clone https://github.com/sayohno222-blip/bionic-design-assistant.git
 cd bionic-design-assistant/client
-npm install
+npm ci
 npm run dev
 ```
 
@@ -92,4 +92,3 @@ npm run build
 ## 使用说明
 
 本项目用于学习、作品集展示和产品流程验证。生成内容仅供设计前期参考。
-
