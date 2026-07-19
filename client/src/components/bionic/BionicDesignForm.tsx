@@ -63,7 +63,7 @@ export default function BionicDesignForm({ input, status, onInput, onSubmit }: B
           仿生产品设计助手
         </h1>
         <p className='text-gray-500 max-w-xl mx-auto leading-relaxed text-sm md:text-base'>
-          从自然界获取灵感，AI 帮你完成从生物特征提取到产品设计方案的全流程
+          从自然形态、结构和适应策略出发，组合可继续验证的产品设计方向
         </p>
       </div>
       <div className='bg-white rounded-2xl border p-6 md:p-8 space-y-5'>
@@ -79,6 +79,7 @@ export default function BionicDesignForm({ input, status, onInput, onSubmit }: B
                 onChange={(e) => onInput({ [field.key]: e.target.value })}
                 placeholder={field.placeholder}
                 rows={3}
+                maxLength={300}
                 disabled={isSubmitting}
                 className='w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400 disabled:bg-gray-50 disabled:text-gray-500 transition-colors resize-none'
               />
@@ -88,6 +89,7 @@ export default function BionicDesignForm({ input, status, onInput, onSubmit }: B
                 value={input[field.key] as string}
                 onChange={(e) => onInput({ [field.key]: e.target.value })}
                 placeholder={field.placeholder}
+                maxLength={80}
                 disabled={isSubmitting}
                 className='w-full px-4 py-2.5 border border-gray-200 rounded-xl text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-400 disabled:bg-gray-50 disabled:text-gray-500 transition-colors'
               />
@@ -107,14 +109,14 @@ export default function BionicDesignForm({ input, status, onInput, onSubmit }: B
               : 'bg-gray-100 text-gray-400 cursor-not-allowed'
           ].join(' ')}
         >
-          {isSubmitting ? '正在生成设计方案...' : '\u{1F98B} 生成设计方案'}
+          {isSubmitting ? '正在组合设计方案...' : '\u{1F98B} 生成设计方向'}
         </button>
       </div>
       <div className='bg-blue-50/50 border border-blue-100 rounded-xl p-4'>
         <p className='text-xs text-blue-700 leading-relaxed'>
           {'\u{1F4A1}'} <span className='font-medium'>提示：</span>
-          灵感来源可以是动物、植物、微生物或自然现象。越具体的描述，AI 生成的设计方案越有针对性。
-          例如蜂巢的六边形结构比蜜蜂更精准。
+          灵感来源可以是动物、植物或自然现象。常见灵感会匹配特征库，陌生灵感会使用通用观察框架。
+          输入“蜂巢六边形结构”会比只写“蜜蜂”更容易得到明确的转译方向。
         </p>
       </div>
     </div>
