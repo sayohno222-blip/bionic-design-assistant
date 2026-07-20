@@ -58,7 +58,7 @@ export default function BionicDesignResults({ result, onReset }: BionicDesignRes
       <div className='flex items-center justify-between'>
         <div>
           <h2 className='text-xl font-bold text-gray-900'>设计方案</h2>
-          <p className='text-sm text-gray-400 mt-0.5'>仿生设计分析报告</p>
+          <p className='text-sm text-gray-400 mt-0.5'>本地规则组合结果 · 需要继续验证</p>
         </div>
         <button
           onClick={onReset}
@@ -176,6 +176,10 @@ export default function BionicDesignResults({ result, onReset }: BionicDesignRes
           重新设计
         </button>
       </div>
+
+      <p className='text-center text-xs text-gray-400'>
+        结果用于设计前期发散，不能替代结构计算、材料测试或目标用户研究。
+      </p>
     </div>
   );
 }

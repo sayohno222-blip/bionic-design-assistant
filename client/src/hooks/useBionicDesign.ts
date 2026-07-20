@@ -1,6 +1,6 @@
 ﻿import { useReducer, useEffect, useCallback, useRef } from 'react';
 import type { BionicInput, BionicDesignResult } from '../types/bionic';
-import { runBionicMock } from '../services/bionicMockData';
+import { runBionicRuleEngine } from '../services/bionicRuleEngine';
 
 export type BionicStatus = 'idle' | 'uploading' | 'success' | 'error';
 
@@ -65,13 +65,13 @@ export function useBionicDesign() {
   const [state, dispatch] = useReducer(reducer, null, createInitialState);
   const abortRef = useRef(false);
 
-  // Mock generation effect
+  // Deterministic browser-side rule engine. No user input leaves the browser.
   useEffect(() => {
     if (state.status !== 'uploading') return;
 
     abortRef.current = false;
 
-    runBionicMock(state.input, {
+    void runBionicRuleEngine(state.input, {
       onProgress(stage, label) {
         if (!abortRef.current) dispatch({ type: 'PROGRESS', stage, label });
       },
@@ -83,7 +83,7 @@ export function useBionicDesign() {
     return () => {
       abortRef.current = true;
     };
-  }, [state.requestId]);
+  }, [state.input, state.requestId, state.status]);
 
   const setInput = useCallback((input: Partial<BionicInput>) => dispatch({ type: 'SET_INPUT', input }), []);
   const submit = useCallback(() => dispatch({ type: 'SUBMIT' }), []);
